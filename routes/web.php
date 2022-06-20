@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Authentication
+ */
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -22,4 +25,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/**
+ * Post Controller Resource
+ */
 Route::resource('/posts',PostController::class);
+
+/**
+ * LiveWire
+ */
+Route::get('/livewire-posts', [PostController::class,'index_livewire']);
+
+
